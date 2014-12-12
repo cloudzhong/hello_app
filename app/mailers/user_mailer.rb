@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: "app32297008@heroku.com"
+  default from: "do_not_reply@heroku.com"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
