@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :admin_edit
+      post :admin_update
     end
   end
   resources :account_activations, only: [:edit]

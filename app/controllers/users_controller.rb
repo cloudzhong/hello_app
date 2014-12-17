@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
+                                        :following, :followers,
+                                        :admin_edit, :admin_update]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:destroy, :admin_edit, :admin_update]
   
   def index
     @users = User.paginate(page: params[:page])
@@ -61,10 +62,29 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def admin_edit
+    @user = User.find(params[:id])
+  end
+  
+  def admin_update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'admin_edit'
+    end
+  end
+  
   private
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
+    end
+    
+    def admin_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation, :admin)
     end
     
     # Before filters

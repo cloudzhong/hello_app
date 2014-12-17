@@ -76,4 +76,26 @@ class UsersControllerTest < ActionController::TestCase
     get :followers, id: @user
     assert_redirected_to login_url
   end
+  
+  test "should redirect admin_edit when not logged in" do
+    get :admin_edit, id: @user
+    assert_redirected_to login_url
+  end
+  
+  test "should redirect admin_edit when logged in as a non-admin" do
+    log_in_as(@other_user)
+    get :admin_edit, id: @user
+    assert_redirected_to root_url
+  end
+  
+  test "should redirect admin_update when not logged in" do
+    post :admin_update, id: @user
+    assert_redirected_to login_url
+  end
+  
+  test "should redirect admin_update when logged in as a non-admin" do
+    log_in_as(@other_user)
+    post :admin_update, id: @user
+    assert_redirected_to root_url
+  end
 end
