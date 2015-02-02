@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     
     logger.debug "***************micropost #{@micropost.attributes.inspect}"
     
-    @comment =  @micropost.comments.build(content: comment_params[:content], user: current_user)
+    @comment =  @micropost.comments.(content: comment_params[:content], user: current_user)
     
     logger.debug "***************comment #{@comment.attributes.inspect}"
 
@@ -33,7 +33,8 @@ class CommentsController < ApplicationController
     end
     
     def correct_user
-      redirect_to root_url if @comment.user?current_user
+      @comment = current_user.comments.find_by(id: params[:id])
+      redirect_to root_url if @comment.nil?
     end
   
 end
