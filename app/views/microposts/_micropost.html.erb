@@ -13,4 +13,19 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <%= form_for(@comment) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div>
+      <%= hidden_field_tag :micropost_id, micropost.id %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+    </div>
+    <%= f.label :comment %>
+    <%= f.text_field :content, class: 'form-control',placeholder: "Coment" %>
+    <%= f.submit "Comment", class: "btn" %>
+    <% end %>
+    <% if micropost.comments.any? %>
+      <ol class="microposts">
+        <%= render micropost.comments %>
+      </ol>
+  <% end %>
 </li>
