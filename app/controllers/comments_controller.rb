@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     
     logger.debug "***************micropost #{@micropost.attributes.inspect}"
     
-    @comment =  @micropost.comments.(content: comment_params[:content], user: current_user)
+    @comment =  @micropost.comments.build(content: comment_params[:content], user: current_user)
     
     logger.debug "***************comment #{@comment.attributes.inspect}"
 
