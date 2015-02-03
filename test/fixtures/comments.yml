@@ -6,6 +6,6 @@ one:
   user_id: cloud
 
 two:
-  micropost_id: 1
+  micropost_id: 2
   content: comment 2
   user_id: michael
