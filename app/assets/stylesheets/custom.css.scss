@@ -272,6 +272,14 @@ input {
       padding: 5px 0;
     }
   }
+  .comment {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 10px 0;
+      border-top: 0px
+    }
+  }
   .timestamp {
     color: $gray-light;
     display: block;

@@ -24,7 +24,7 @@
     <%= f.submit "Comment", class: "btn" %>
     <% end %>
     <% if micropost.comments.any? %>
-      <ol class="microposts">
+      <ol class="comment">
         <%= render micropost.comments %>
       </ol>
   <% end %>

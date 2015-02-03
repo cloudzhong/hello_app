@@ -5,13 +5,8 @@ class CommentsController < ApplicationController
 
   def create
     @micropost = Micropost.find params[:micropost_id]
-    
-    logger.debug "***************micropost #{@micropost.attributes.inspect}"
-    
     @comment =  @micropost.comments.build(content: comment_params[:content], user: current_user)
     
-    logger.debug "***************comment #{@comment.attributes.inspect}"
-
     if @comment.save
       flash[:success] = "Comment created!"
     else
