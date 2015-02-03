@@ -18,7 +18,9 @@
     <div>
       <%= hidden_field_tag :micropost_id, micropost.id %>
     </div>
-    <div><a href="#cmmt<%=micropost.id%>" data-toggle="collapse">Comment</a></div>
+    <div><a class= "toggleButton" href="#cmmt<%=micropost.id%>" data-toggle="collapse">
+      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+    </a></div>
     <div id="cmmt<%=micropost.id%>" class="collapse">
       <%= f.text_area :content, class: 'form-control',placeholder: "Comment" %>
       <%= f.submit "Comment", class: "btn btn-primary btn-sm commentButton" %>
