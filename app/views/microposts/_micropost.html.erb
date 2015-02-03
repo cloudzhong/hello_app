@@ -18,9 +18,8 @@
     <div>
       <%= hidden_field_tag :micropost_id, micropost.id %>
     </div>
-    <%= f.label :comment %>
-    <%= f.text_field :content, class: 'form-control',placeholder: "Coment" %>
-    <%= f.submit "Comment", class: "btn" %>
+    <%= f.text_field :content, class: 'form-control',placeholder: "Comment" %>
+    <%= f.submit "Comment", class: "btn btn-primary btn-sm commentButton" %>
     <% end %>
     <% if micropost.comments.any? %>
       <ol class="comment">
