@@ -26,11 +26,12 @@
       <%= f.submit "Comment", class: "btn btn-primary btn-sm commentButton" %>
     </div>
     <% end %>
-    <% if micropost.comments.any? %>
-      <ol class="comment">
-        <div id="mp-<%= micropost.id%>-comments">
-          <%= render micropost.comments %>
-        </div>
-      </ol>
-  <% end %>
+    
+    <div id="mp-<%= micropost.id%>-comments">
+      <% if micropost.comments.any? %>
+        <ol class="comment">
+            <%= render micropost.comments %>
+        </ol>
+      <% end %>
+    </div>
 </li>
