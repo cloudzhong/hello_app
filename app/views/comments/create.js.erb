@@ -1,1 +1,2 @@
 $("#mp-<%=@micropost.id%>-comments").html("<%= escape_javascript(render(@micropost.comments)) %>")
+$("#mp-<%=@micropost.id%>-cts").html('<%=@micropost.comments.size %>')
