@@ -256,7 +256,7 @@ input {
 .microposts {
   list-style: none;
   padding: 0;
-  li {
+  .mpli {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
@@ -287,10 +287,9 @@ input {
   .comment {
     list-style: none;
     padding: 0;
-    li {
-      padding: 5px 0;
-      border-top: 0px
-    }
+  }
+  .cmnli {
+    padding: 5px 0;
   }
   .timestamp {
     color: $gray-light;
