@@ -272,6 +272,15 @@ input {
       padding: 5px 0;
     }
   }
+  .combutton {
+    margin-left: 60px;
+    width: auto;
+  }
+  .comcon {
+    display: block;
+    margin-left: 60px;
+    width: 90%;
+  }
   .marginleft60 {
      margin-left: 60px;
   }
@@ -282,9 +291,6 @@ input {
       padding: 5px 0;
       border-top: 0px
     }
-  }
-  .widthauto {
-    width: auto;
   }
   .timestamp {
     color: $gray-light;

@@ -14,7 +14,7 @@
     <% end %>
   </span>
   
-  <div><a class= "toggleButton" href="#cmmt<%=micropost.id%>" data-toggle="collapse">
+  <div><a class= "marginleft60" href="#cmmt<%=micropost.id%>" data-toggle="collapse">
       <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
       <span id="mp-<%=micropost.id%>-cts"><%=micropost.comments.size%></span>
     </a></div>
@@ -24,8 +24,8 @@
     <%= form_for(@comment, remote: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
         <%= hidden_field_tag :micropost_id, micropost.id %>
-        <%= f.text_area :content, class: 'form-control marginleft60',placeholder: "Comment" %>
-        <%= f.submit "Comment", class: "btn btn-primary btn-sm widthauto" %>
+        <%= f.text_field :content, class: 'form-control comcon',placeholder: "Comment" %>
+        <%= f.submit "Comment", class: "btn btn-primary combutton" %>
     <% end %>
     
     <div id="mp-<%= micropost.id%>-comments">
