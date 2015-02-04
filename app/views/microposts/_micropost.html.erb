@@ -13,7 +13,7 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-  <%= form_for(@comment) do |f| %>
+  <%= form_for(@comment, remote: true) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div>
       <%= hidden_field_tag :micropost_id, micropost.id %>
@@ -28,7 +28,9 @@
     <% end %>
     <% if micropost.comments.any? %>
       <ol class="comment">
-        <%= render micropost.comments %>
+        <div id="mp-<%= micropost.id%>-comments">
+          <%= render micropost.comments %>
+        </div>
       </ol>
   <% end %>
 </li>

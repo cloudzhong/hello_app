@@ -6,19 +6,22 @@ class CommentsController < ApplicationController
   def create
     @micropost = Micropost.find params[:micropost_id]
     @comment =  @micropost.comments.build(content: comment_params[:content], user: current_user)
-    
-    if @comment.save
-      flash[:success] = "Comment created!"
-    else
-      logger.debug "error in create commet"
+    @comment.save
+
+    respond_to do |format|
+      format.html
+      format.js
     end
-    redirect_to request.referrer
   end
 
   def destroy
+    @micropost = Micropost.find @comment.micropost_id
     @comment.destroy
-    flash[:success] = "Comment deleted"
-    redirect_to request.referrer || root_url
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
