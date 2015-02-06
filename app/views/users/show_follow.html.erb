@@ -4,7 +4,7 @@
     <section class="user_info">
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <span><%= link_to "view my posts", @user %></span>
       <span><b>Microposts:</b> <%= @user.microposts.count %></span>
     </section>
     <section class="stats">
@@ -21,10 +21,13 @@
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
+<table class="users table table-hover table-striped">
+  <thead><tr><th></th><th>User Name</th><th>email</th><th>administrator</th><th></th></tr></thead>
+  <tbody>
+  <%= render @users %>
+  </tbody>
+</table>
+  <%= will_paginate %>
     <% end %>
   </div>
 </div>
